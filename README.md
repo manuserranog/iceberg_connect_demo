@@ -32,13 +32,13 @@ Install pip
     `pip install confluent-kafka`
 6. In a seperate terminal window, run the pizza loader script
 
-    `python pizza_loader.py`
+    `python3 pizza_loader.py`
 7. Launch PySpark
 
     `docker exec -it spark-iceberg pyspark`
 8. Explore Iceberg table
 
-    `df = spark.table("demo.rpc.pizzas")`
+    `df = spark.table("rpc.pizzas")`
 
     `df.count()`
 
