@@ -11,6 +11,10 @@ This demonstration will send data into an Apache Kafka topic which will be picke
 - Python
 
 ## Steps to run demo
+
+Install pip
+`sudo apt install python3-pip -y`
+
 1. Launch server applications
 
     `docker compose up -d`
@@ -19,8 +23,7 @@ This demonstration will send data into an Apache Kafka topic which will be picke
     `docker exec -t broker kafka-topics --create --topic completed-pizzas --partitions 6 --bootstrap-server broker:9092`
 3. Launch the Iceberg connector (installed via docker compose)
 
-    `curl -X PUT http://localhost:8083/connectors/pizzas-on-ice/config \
-     -i -H "Content-Type: application/json" -d @pizzas_on_ice.json`
+    `curl -X PUT http://localhost:8083/connectors/pizzas-on-ice/config -i -H "Content-Type: application/json" -d @pizzas_on_ice.json`
 4. Check status of connector
 
     `curl http://localhost:8083/connectors/pizzas-on-ice/status |jq`
